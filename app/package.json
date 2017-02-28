@@ -1,0 +1,16 @@
+{
+  "name": "kubernetes-blog-post",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.15.3",
+    "rethinkdb": "^2.3.3",
+    "rethinkdb-init": "^0.2.2"
+  }
+}

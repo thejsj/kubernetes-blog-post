@@ -1,0 +1,41 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    db: rethinkdb
+  name: rethinkdb
+spec:
+  template:
+    metadata:
+      labels:
+        db: rethinkdb
+        wow: hey
+        role: replica
+    spec:
+      containers:
+      - image: rethinkdb
+        args:
+          - "rethinkdb"
+          - "--bind"
+          - "all"
+          - "--cache-size"
+          - "100"
+        imagePullPolicy: Always
+        name: rethinkdb
+        ports:
+        - containerPort: 8080
+          name: admin
+        - containerPort: 28015
+          name: driver
+        - containerPort: 29015
+          name: cluster
+        resources:
+          limits:
+            cpu: 100m
+            memory: 256Mi
+        volumeMounts:
+        - mountPath: /data/rethinkdb_data
+          name: rethinkdb-storage
+      volumes:
+      - name: rethinkdb-storage
+        emptyDir: {}

@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: "kubernetes-demo-app-service"
+spec:
+  selector:
+    app: "kubernetes_demo_app"
+  externalIPs:
+    - 192.168.64.10
+  ports:
+  - protocol: "TCP"
+    port: 80
+    targetPort: 80
