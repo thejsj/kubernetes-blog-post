@@ -3,7 +3,7 @@
 const http = require('http')
 const r = require('rethinkdb')
 require('rethinkdb-init')(r)
-const axios = require('axios')
+const axios = require('axios').create({ timeout: 500 })
 
 const port = parseInt(process.env.PORT || 80, 10)
 
@@ -17,7 +17,7 @@ http.createServer((req, res) => {
   ])
     .then((conn) => {
       return Promise.all([
-        axios.get(`https://api.gihub.com/user?access_token=${process.env.GITHUB_TOKEN}`).catch(()=> null),
+        axios.get(`https://api.github.com/user?access_token=${process.env.GITHUB_TOKEN}`).catch(()=> null),
         r.table('visits').insert({ time: r.now() }).run(conn),
         r.table('visits').limit(10).coerceTo('array').run(conn)
       ])
@@ -35,4 +35,4 @@ http.createServer((req, res) => {
       res.end(JSON.stringify({ err }))
     })
 }).listen(port)
-console.log(`Listening on port ${port}`)
+console.log(`Start listening on port ${port}`)

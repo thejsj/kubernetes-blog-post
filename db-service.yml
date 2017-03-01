@@ -11,3 +11,15 @@ spec:
   - protocol: "TCP"
     port: 8080
     targetPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: "rethinkdb-db-access"
+spec:
+  selector:
+    db: rethinkdb
+  ports:
+  - protocol: "TCP"
+    port: 28015
+    targetPort: 28015

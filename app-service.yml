@@ -9,5 +9,5 @@ spec:
     - 192.168.64.10
   ports:
   - protocol: "TCP"
-    port: 80
-    targetPort: 80
+    port: 8000
+    targetPort: 8000
