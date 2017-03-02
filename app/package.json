@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.15.3",
+    "moniker": "^0.1.2",
     "rethinkdb": "^2.3.3",
     "rethinkdb-init": "^0.2.2"
   }

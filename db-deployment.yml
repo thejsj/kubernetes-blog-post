@@ -9,8 +9,6 @@ spec:
     metadata:
       labels:
         db: rethinkdb
-        wow: hey
-        role: replica
     spec:
       containers:
       - image: rethinkdb
