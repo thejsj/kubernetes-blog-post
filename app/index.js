@@ -6,7 +6,6 @@ require('rethinkdb-init')(r)
 const Moniker = require('moniker')
 const axios = require('axios').create({ timeout: 500 })
 const nameGenerator = Moniker.generator([Moniker.adjective, Moniker.noun])
-const GITHUB_TOKEN = Buffer.from(process.env.GITHUB_TOKEN, 'base64').toString()
 
 const port = parseInt(process.env.PORT || 80, 10)
 
@@ -20,7 +19,7 @@ http.createServer((req, res) => {
   ])
     .then((conn) => {
       return Promise.all([
-        axios.get(`https://api.github.com/user?access_token=${GITHUB_TOKEN}`).catch(()=> null),
+        axios.get(`https://api.github.com/user?access_token=${process.env.GITHUB_TOKEN}`).catch(()=> null),
         r.table('visits').insert({ name: nameGenerator.choose(), time: r.now() }, { returnChanges: true }).run(conn),
         r.table('visits').orderBy(r.desc('time')).limit(10).coerceTo('array').run(conn)
       ])

@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
         - name: kubernetes-demo-app
-          image: hiphipjorge/kubernetes-demo-app:v0.0.14
+          image: hiphipjorge/kubernetes-demo-app:v0.0.16
           ports:
             - containerPort: 8000
           env:
