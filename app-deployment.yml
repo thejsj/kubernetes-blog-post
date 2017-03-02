@@ -20,4 +20,7 @@ spec:
           - name: PORT
             value: "8000"
           - name: GITHUB_TOKEN
-            value: "f92d44a2ee715b03bd205ac56b57c4b63f257059"
+            valueFrom:
+              secretKeyRef:
+                name: github
+                key: token
