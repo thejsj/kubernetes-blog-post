@@ -5,8 +5,6 @@ metadata:
 spec:
   selector:
     db: rethinkdb
-  externalIPs:
-    - 192.168.64.10
   ports:
   - protocol: "TCP"
     port: 8080

@@ -5,9 +5,10 @@ metadata:
 spec:
   selector:
     app: "kubernetes_demo_app"
-  externalIPs:
-    - 192.168.64.10
+  type: NodePort
   ports:
   - protocol: "TCP"
     port: 8000
+    nodePort: 32222
     targetPort: 8000
+

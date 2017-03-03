@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: "kubernetes-demo-app-ingress-service"
+spec:
+  rules:
+  - host: kubesrnetes-demo-app.local
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: "kubernetes-demo-app-service"
+          servicePort: 8000
+  - host: rethinkdb-admin.local
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: "rethinkdb-admin-service"
+          servicePort: 8080
