@@ -18,8 +18,22 @@ kubectl --namespace=kubernetes-demo apply -f app-deployment.yml -f app-service.y
 
 After running this command, you can go to your dashboard. It should look something like this:
 
+##### Deployments
+
 ![screenshots/deployments.png](screenshots/deployments.png)
+
+##### Replica Sets
+
 ![screenshots/replica-sets.png](screenshots/replica-sets.png)
+
+##### Pods
+
 ![screenshots/pods.png](screenshots/pods.png)
+
+##### Services
+
 ![screenshots/services.png](screenshots/services.png)
-![screenshots/ingreses.png](screenshots/ingreses.png)
+
+##### Ingresses
+
+![screenshots/ingresses.png](screenshots/ingresses.png)
